@@ -13,6 +13,7 @@ from src.model import PageResponse
 router = APIRouter()
 
    
+@router.get('/document/', response_model=PageResponse)
 @router.get('/document', response_model=PageResponse)
 async def get_documents(
     page: int = Query(default=1, ge=1 ,description='页码'),

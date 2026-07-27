@@ -19,7 +19,7 @@ class DocumentCrud:
             select(Document)
             .offset(offset)
             .limit(page_size)
-            .order_by(desc(Document.id))
+            .order_by(desc(Document.view))
         )
         results = await self.session.exec(data_stmt)
         items: List[Image] = list(results.all()) # type: ignore
